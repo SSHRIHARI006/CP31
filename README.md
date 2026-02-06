@@ -7,3 +7,9 @@ My solutions of CP31 sheet by TLE eleminators
 [Leetcode](https://leetcode.com/u/Shrihari06/)
 
 [Codechef](https://www.codechef.com/users/huge_mirage_19)
+
+
+chmod +x organize.sh
+./organize.sh
+
+to organise folder and files
