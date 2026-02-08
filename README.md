@@ -10,6 +10,8 @@ My solutions of CP31 sheet by TLE eleminators
 
 
 chmod +x organize.sh
+
+
 ./organize.sh
 
 to organise folder and files
