@@ -13,7 +13,16 @@ int main() {
     int t;
     cin >> t;
     while (t--) {
-        
+        ll n;
+        cin>>n;
+        if(n%2==1)cout<<"YES"<<endl;
+        else{
+        while(n>1 && n%2==0){
+            n = n/2;
+        }
+        if(n==1)cout << "NO"<< endl;
+        else cout << "YES" << endl;
+        }
     }
     return 0;
 }
