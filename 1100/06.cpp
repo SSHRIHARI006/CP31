@@ -1,38 +1,51 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-int main(){
+#define ll long long
+#define ld long double
+#define all(x) (x).begin(), (x).end()
+#define pb push_back
+
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
 
     int t;
-    cin>>t;
-    while(t--){
-        int n,q;
-        cin>>n>>q;
+    cin >> t;
+    while (t--) {
+        ll n, q;
+        cin >> n >> q;
 
-        vector<long long>A(n);
-        for(int i=0;i<n;i++) cin>>A[i];
-
-        int mn = 31;
-
-        while(q--){
-            int x;
-            cin>>x;
-            if(x >= mn) continue;
-            mn = x;
-
-            long long add = 1LL << (x-1);
-
-            for(int i=0;i<n;i++){
-                if((A[i] & ((1LL<<x)-1)) == 0){
-                    A[i] += add;
-                }
-            }
+        vector<ll> a(n);
+        for (int i = 0; i < n; i++) {
+            cin >> a[i];
         }
 
-        for(long long v : A) cout<<v<<" ";
-        cout<<"\n";
+        vector<ll> x(q);
+        for (int i = 0; i < q; i++) {
+            cin >> x[i];
+        }
+
+        ll prev = 31;
+
+        for (int i = 0; i < q; i++) {
+            if (x[i] >= prev) continue;
+
+            ll val = pow(2, x[i]);
+
+            for (int j = 0; j < n; j++) {
+                if (a[j] % val == 0) {
+                    a[j] += (val / 2);
+                }
+            }
+
+            prev = x[i];
+        }
+
+        for (int i = 0; i < n; i++) {
+            cout << a[i] << " ";
+        }
+        cout << endl;
     }
     return 0;
 }

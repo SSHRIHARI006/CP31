@@ -1,31 +1,50 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main(){
+#define ll long long
+#define ld long double
+#define all(x) (x).begin(), (x).end()
+#define pb push_back
+
+int main() {
     ios::sync_with_stdio(false);
-    cin.tie(NULL);
+    cin.tie(nullptr);
 
     int t;
     cin >> t;
-    while(t--){
-        int n,k;
-        cin>>n>>k;
-        vector<int>A(n);
-        for(int i=0;i<n;i++)cin>>A[i];
 
-        sort(A.begin(),A.end());
-        int i=0,j=n-1;
-        int sum = accumulate(A.begin(),A.end(),0);
-        while(k-- && (i<(n-1)) && (j>0)){
-            int a = A[i]+A[i+1];
-            int b = A[j];
-            if(a>b){
-                sum -= b;
-                j--;
-            }
-            else {sum -=a;i+=2;}
+    while (t--) {
+        int n, k;
+        cin >> n >> k;
+
+        vector<ll> A(n);
+
+        for (auto &x : A)
+            cin >> x;
+
+        sort(A.begin(), A.end());
+
+        int l = 0, r = n - k - 1;
+
+        ll sum = 0;
+
+        for (int i = l; i <= r; i++)
+            sum += A[i];
+
+        ll ans = sum;
+
+        for (int i = 1; i <= k; i++) {
+            sum -= A[l] + A[l + 1];
+            l += 2;
+
+            r++;
+            sum += A[r];
+
+            ans = max(ans, sum);
         }
-        cout << sum << endl;
+
+        cout << ans << '\n';
     }
+
     return 0;
 }
