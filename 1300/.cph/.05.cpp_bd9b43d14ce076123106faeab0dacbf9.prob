@@ -1,0 +1,1 @@
+{"name":"Local: 05","url":"/home/shrihari/Desktop/CP31/1300/05.cpp","tests":[{"id":1794855546627,"input":"3\n10010\n111\n0101\n","output":"1 2\n2 6\n0 1\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/shrihari/Desktop/CP31/1300/05.cpp","group":"local","local":true}
